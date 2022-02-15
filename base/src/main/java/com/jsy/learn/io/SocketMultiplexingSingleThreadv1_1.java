@@ -59,12 +59,6 @@ public class SocketMultiplexingSingleThreadv1_1 {
                              *      所以什么时候要写才注册写事件,下次select()就可进行写操作,写完成要key.cancel()多路复用器中取消监听
                              *      因为取消的整个key监听,读也取消,需再次注册读
                              */
-                            //写事件<--  send-queue  只要是空的，就一定会给你返回可以写的事件，就会回调我们的写方法
-                            //多路复用器能不能写是参考send-queue有没有空间,如果一开始就注册了write的事件，进入死循环，一直调起！！！
-                            //第一步骤，准备要写的数据
-                            //第二步骤，判断send-queue是否有空间,即多路复用器是否可写
-                            //所以 : 读 read 一开始就要注册，但是write依赖以上关系，什么时候用什么时候注册
-                            //可用key.cancel(); 取消多路复用器中对此连接的写监听
                             writeHandler(key);
                         }
                     }
