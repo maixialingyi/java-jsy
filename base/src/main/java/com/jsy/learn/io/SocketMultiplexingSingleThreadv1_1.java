@@ -87,7 +87,7 @@ public class SocketMultiplexingSingleThreadv1_1 {
             e.printStackTrace();
         }
         buffer.clear();
-        key.cancel(); //从多路复用器中取消,取消事件监听
+        key.cancel(); /**从多路复用器中取消,取消事件监听*/
         try {
             client.close(); //关闭连接
         } catch (IOException e) {
