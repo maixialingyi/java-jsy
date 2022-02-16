@@ -56,8 +56,8 @@ public class SocketMultiplexingSingleThreadv1_1 {
                              * 连接可写: 系统send-queue为空,有空间,则可写,反之不可写.
                              * 为什么要写操作前才注册write事件? 如果连接创建后就注册write,系统send-queue为空,则会照成每次select()都
                              *      有可写事件,照成死循环,
-                             *      所以什么时候要写才注册写事件,下次select()就可进行写操作,写完成要key.cancel()多路复用器中取消监听
-                             *      因为取消的整个key监听,读也取消,需再次注册读
+                             *      所以什么时候要写,才注册写事件,下次select()就可进行写操作,写完成要key.cancel()取消内核红黑树中监听
+                             *      但是取消的整个key监听,读也取消,需再次注册读
                              */
                             writeHandler(key);
                         }
@@ -70,27 +70,23 @@ public class SocketMultiplexingSingleThreadv1_1 {
     }
 
     private void writeHandler(SelectionKey key) {
-        System.out.println("write handler...");
-        SocketChannel client = (SocketChannel) key.channel();
-        ByteBuffer buffer = (ByteBuffer) key.attachment();
-        buffer.flip();
-        while (buffer.hasRemaining()) {
-            try {
-                client.write(buffer);
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            System.out.println("write handler...");
+            SocketChannel client = (SocketChannel) key.channel();
+            ByteBuffer buffer = (ByteBuffer) key.attachment();
+            buffer.flip();
+            while (buffer.hasRemaining()) {
+                try {
+                    client.write(buffer);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-        try {
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        buffer.clear();
-        key.cancel(); /**从多路复用器中取消,取消事件监听*/
-        try {
-            client.close(); //关闭连接
-        } catch (IOException e) {
+            buffer.clear();
+            key.cancel(); /**从多路复用器中取消,取消事件监听*/
+            client.close(); /**关闭连接*/
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -105,7 +101,6 @@ public class SocketMultiplexingSingleThreadv1_1 {
             System.out.println("-------------------------------------------");
             System.out.println("新客户端：" + client.getRemoteAddress());
             System.out.println("-------------------------------------------");
-
         } catch (IOException e) {
             e.printStackTrace();
         }

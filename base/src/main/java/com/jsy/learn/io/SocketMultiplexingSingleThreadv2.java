@@ -14,6 +14,12 @@ import java.util.Set;
  * 主线程处理accpet
  * 多线程处理读写事件
  * 测试: nc ip port
+ *
+ * client.register(selector, SelectionKey.OP_READ, buffer); 注册监听,基于水平触发,内核数据准备完成,key为可读,用户线程读完才为不可读
+ * 单线程线性处理:        内核数据读取完,才会进行下次select()
+ * 多线程异步处理可读事件: 如果当前内核数据未读完,进行了下次次select(),基于水平触发,则key还为可读,会照成重复读
+ * 解决:    每次处理可读前key.cancel(),取消内核红黑树上key的监听,读处理完后在加上监听
+ * 引入问题: key.cancel()为系统调用,影响性能
  */
 public class SocketMultiplexingSingleThreadv2 {
 
@@ -52,10 +58,10 @@ public class SocketMultiplexingSingleThreadv2 {
                         if (key.isAcceptable()) {
                             acceptHandler(key);
                         } else if (key.isReadable()) {
-//                            key.cancel();  //现在多路复用器里把key  cancel了
-                            System.out.println("in.....");
+                            /** 基于水平触发,读事件重复,解决方式 */
+                            //key.cancel();  //取消内核红黑树上key的监听
                             key.interestOps(key.interestOps() | ~SelectionKey.OP_READ);
-                            readHandler(key);//还是阻塞的嘛？ 即便以抛出了线程去读取，但是在时差里，这个key的read事件会被重复触发
+                            readHandler(key);
                         } else if (key.isWritable()) {
                             key.interestOps(key.interestOps() & ~SelectionKey.OP_WRITE);
                             writeHandler(key);
@@ -88,18 +94,10 @@ public class SocketMultiplexingSingleThreadv2 {
                 e.printStackTrace();
             }
             buffer.clear();
-//            key.cancel();
-
-//            try {
-////                client.shutdownOutput();
-//
-////                client.close();
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+            //key.cancel();
+            //client.shutdownOutput();
+            //client.close();
         }).start();
-
     }
 
     public void acceptHandler(SelectionKey key) {
@@ -134,7 +132,6 @@ public class SocketMultiplexingSingleThreadv2 {
 
                         client.register(key.selector(), SelectionKey.OP_WRITE, buffer);
                     } else if (read == 0) {
-
                         break;
                     } else {
                         client.close();

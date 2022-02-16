@@ -19,56 +19,52 @@ public class SocketMultiplexingSingleThreadv1 {
     private ServerSocketChannel server = null;
     private Selector selector = null;   //linux 多路复用器（select poll    epoll kqueue） nginx  event{}
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         SocketMultiplexingSingleThreadv1 service = new SocketMultiplexingSingleThreadv1();
         service.start();
     }
 
-    public void initServer() {
-        try {
-            server = ServerSocketChannel.open();
-            server.configureBlocking(false); //设置非阻塞
-            server.bind(new InetSocketAddress(port));  //绑定端口
+    public void initServer() throws Exception {
+        server = ServerSocketChannel.open();
+        server.configureBlocking(false); //设置非阻塞
+        server.bind(new InetSocketAddress(port));  //绑定端口
 
-            //如果在epoll模型下，open--》  epoll_create -> fd3
-            selector = Selector.open();  //  select  poll  *epoll  优先选择：epoll  但是可以 -D修正
+        //如果在epoll模型下，open--》  epoll_create -> fd3
+        selector = Selector.open();  //  select  poll  *epoll  优先选择：epoll  但是可以 -D修正
 
-            /**
-             * 向多路复用器中注册 链接事件
-             * select，poll：jvm里开辟一个数组 fd4 放进去
-             * epoll：  epoll_ctl(fd3,ADD,fd4,EPOLLIN
-             */
-            server.register(selector, SelectionKey.OP_ACCEPT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        /**
+         * 向多路复用器中注册 链接事件
+         * select，poll：jvm里开辟一个数组 fd4 放进去
+         * epoll：  epoll_ctl(fd3,ADD,fd4,EPOLLIN
+         */
+        server.register(selector, SelectionKey.OP_ACCEPT);
     }
 
-    public void start() {
+    public void start() throws Exception {
         initServer();
         System.out.println("服务器启动了。。。。。");
-        try {
-            while (true) {  /**死循环*/
-                //获取多路复用器中,即内核红黑树中 所有key key代表一个连接
-                //Set<SelectionKey> keys = selector.keys();
 
-                /**
-                 * select() 调用多路复用器 (select,poll  or  epoll  (epoll_wait)) , 可设置超时
-                 * select，poll  其实  内核的select（fd4）  poll(fd4)
-                 * epoll：       其实  内核的 epoll_wait()
-                 *
-                 * 懒加载：selector.select()调用的时候触发了epoll_ctl的调用
-                 */
-                while (selector.select() > 0) {
-                    /** 一次调用返回此时所有 有效状态的fd集合 */
-                    Set<SelectionKey> selectionKeys = selector.selectedKeys();
-                    Iterator<SelectionKey> iter = selectionKeys.iterator();
-                    while (iter.hasNext()) {
-                        SelectionKey key = iter.next();
-                        iter.remove(); //set  不移除会重复循环处理 ?
-                        if (key.isAcceptable()) { //链接事件处理
-                            /**
-                             * select，poll，链接在jvm中保存,和前边的fd4那个listen的一起
+        while (true) {  /**死循环*/
+            //获取多路复用器中,即内核红黑树中 所有key key代表一个连接
+            //Set<SelectionKey> keys = selector.keys();
+
+            /**
+             * select() 调用多路复用器 (select,poll  or  epoll  (epoll_wait)) , 可设置超时
+             * select，poll  其实  内核的select（fd4）  poll(fd4)
+             * epoll：       其实  内核的 epoll_wait()
+             *
+             * 懒加载：selector.select()调用的时候触发了epoll_ctl的调用
+             */
+            while (selector.select() > 0) {
+                /** 一次调用返回此时所有 有效状态的fd集合 */
+                Set<SelectionKey> selectionKeys = selector.selectedKeys();
+                Iterator<SelectionKey> iter = selectionKeys.iterator();
+                while (iter.hasNext()) {
+                    SelectionKey key = iter.next();
+                    iter.remove(); //set  不移除会重复循环处理 ?
+                    if (key.isAcceptable()) { //链接事件处理
+                        /**
+                         * select，poll，链接在jvm中保存,和前边的fd4那个listen的一起
                              * epoll： 我们希望通过epoll_ctl把新的客户端fd注册到内核空间
                              */
                             acceptHandler(key);
@@ -82,9 +78,6 @@ public class SocketMultiplexingSingleThreadv1 {
                     }
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void acceptHandler(SelectionKey key) {
