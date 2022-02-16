@@ -13,6 +13,9 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * 多selecter并行,selecter单线程线程处理: 连接,读,写
+ */
 public class SocketMultiplexingThreads {
 
     private ServerSocketChannel server = null;
@@ -163,8 +166,6 @@ class NioThread extends Thread {
             e.printStackTrace();
         }
     }
-
-
 }
 
 
