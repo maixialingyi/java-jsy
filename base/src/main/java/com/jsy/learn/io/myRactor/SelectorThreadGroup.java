@@ -18,7 +18,7 @@ public class SelectorThreadGroup {  //天生都是boss
      * Selecter线程组,用于管理
      */
     SelectorThread[] selectorThreadArray;
-    ServerSocketChannel serverSocketChannel = null;
+    /** 无workerGroup时自己就是workerGroup */
     SelectorThreadGroup workerGroup = this;
 
     SelectorThreadGroup(int num) {
@@ -38,7 +38,7 @@ public class SelectorThreadGroup {  //天生都是boss
 
     public void bind(int port) {
         try {
-            serverSocketChannel = ServerSocketChannel.open();
+            ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
             serverSocketChannel.configureBlocking(false);
             serverSocketChannel.bind(new InetSocketAddress(port));
 
@@ -60,7 +60,7 @@ public class SelectorThreadGroup {  //天生都是boss
                 selectorThread.setWorker(workerGroup);
                 selectorThread.selector.wakeup();
             } else {
-                //分配读写到workerGroup
+                //分配OP_READ OP_WRITE到workerGroup
                 int index = xid.incrementAndGet() % workerGroup.selectorThreadArray.length;
                 SelectorThread selectorThread =  workerGroup.selectorThreadArray[index];
                 selectorThread.threadLocalQueue.add(channel);
