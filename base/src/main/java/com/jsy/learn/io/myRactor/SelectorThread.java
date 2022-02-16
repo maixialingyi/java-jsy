@@ -124,9 +124,7 @@ public class SelectorThread extends ThreadLocal<LinkedBlockingQueue<Channel>> im
         try {
             SocketChannel client = server.accept();
             client.configureBlocking(false);
-            //nextSelector(serverSocketChannel);  //轮训选择selector,每一个selector上都可以OP_ACCEPT OP_READ
-            //nextSelectorV2(serverSocketChannel);//一个固定selector负责注册OP_ACCEPT,其他selector负责注册OP_READ
-            selectorThreadGroup.nextSelectorV3(client);
+            selectorThreadGroup.nextSelector(client);
         } catch (IOException e) {
             e.printStackTrace();
         }
