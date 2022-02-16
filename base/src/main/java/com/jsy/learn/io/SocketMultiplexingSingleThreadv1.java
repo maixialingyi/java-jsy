@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * 单线程,线性处理,不注册写事件
+ * 单线程,线性处理,不注册可写事件
  */
 public class SocketMultiplexingSingleThreadv1 {
 
