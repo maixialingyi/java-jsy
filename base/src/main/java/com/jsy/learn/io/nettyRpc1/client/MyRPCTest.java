@@ -7,11 +7,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @author: 马士兵教育
- * @create: 2020-07-12 20:08
- */
-
 /*
     1，先假设一个需求，写一个RPC
     2，来回通信，连接数量，拆包？
