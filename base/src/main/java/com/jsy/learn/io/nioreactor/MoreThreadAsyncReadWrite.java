@@ -11,18 +11,11 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * 单selecter,多线程异步处理读写      测试: linux # nc ip port
+ * 异步读写
  *
- * 可读:                 内核数据准备完成,可读. 基于水平触发,内核数据被用户读完才为不可读
- * 单线程线性处理:        内核数据读取完,才会进行下次select(),不会出现重复读
- * 异步处理可读事件:      如果当前内核数据未读完,进行了下次次select(),基于水平触发,则key还为可读,会照成重复读
- *      解决方式一:
- *      每次读/写事件,都先系统调用取消对读写事件监听
- *
- *      解决方式二:
- *      多selecter线程并行,单selecter线程处理读写
- *      原理: 用cup核数 或 *2个线程,每个线程中创建一个selecter,把fds打散均匀注册到不同selecter上
- *           -> 多线程 且 避免了读事件重复(不用调用key.cancel()
+ * 可写: 系统send-queue有空间,则可写,反之不可写.
+ *      如果连接创建后就注册write,系统send-queue为空,则会照成每次select()都有可写事件,照成空调用
+ *      所以什么时候要写,才注册写事件,下次select()就会监听到可写事件,本次select()内要取消key可写监听,重新注册可读,下次select()生效
  */
 public class MoreThreadAsyncReadWrite {
 
@@ -143,6 +136,5 @@ public class MoreThreadAsyncReadWrite {
                 e.printStackTrace();
             }
         }).start();
-
     }
 }

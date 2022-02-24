@@ -1,9 +1,7 @@
 package com.jsy.learn.io.bioNetwork;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -22,7 +20,7 @@ public class ServerBIO {
                     InputStream in = socket.getInputStream();
                     while(true){
                         byte[] b=new byte[2];
-                        int len=in.read(b);
+                        int len=in.read(b);     //阻塞,直到内核数据准备完成
                         System.out.println("客户端说："+new String(b,0,len));
                     }
                 } catch (IOException e) {

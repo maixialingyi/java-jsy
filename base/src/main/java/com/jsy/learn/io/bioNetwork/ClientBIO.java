@@ -24,7 +24,7 @@ public class ClientBIO {
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
             while(true){
-                String line = reader.readLine();
+                String line = reader.readLine(); // 阻塞
                 if(line != null ){
                     out.write(line.getBytes());
                 }
