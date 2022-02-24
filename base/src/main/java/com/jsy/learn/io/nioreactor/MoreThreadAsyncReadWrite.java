@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * 异步读写
+ * 异步读写    //todo 代码有问题
  *
  * 可写: 系统send-queue有空间,则可写,反之不可写.
  *      如果连接创建后就注册write,系统send-queue为空,则会照成每次select()都有可写事件,照成空调用
@@ -54,6 +54,8 @@ public class MoreThreadAsyncReadWrite {
                         if (key.isAcceptable()) {
                             acceptHandler(key);
                         } else if (key.isReadable()) {
+                            //todo 取消读         key.interestOps(key.interestOps()& ~SelectionKey.OP_READ);
+                            //todo 后续注册不上  
                             key.interestOps(key.interestOps() | ~SelectionKey.OP_READ);
                             readHandler(key);
                         } else if (key.isWritable()) {
