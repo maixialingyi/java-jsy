@@ -1,30 +1,26 @@
 package com.jsy.learn.algorithm.sort;
 
 /**
- * 插入排序
- * 前提: 局部有序
- * 向有序方向两两比较,找到第一个比自己小的下标,与中间下标两两交换
+ * 插入排序: 标记下标向前比较,小于前互换,大于前或到下标0结束
+ * arr[0～1]范围上,从arr[1]开始往前比较,小于前互换,大于前或到下标0结束
+ * arr[0～2]范围上,从arr[2]开始往前比较
+ * …………
+ * arr[0～N]范围上,从arr[N]开始往前比较
  */
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 7, 9, 5, 3};
+        int[] arr = SortCommon.randomArr(10, 10);
 
-        int in, out;
-        for (out = 1; out < arr.length; out++) {
-            int temp = arr[out];
-            in = out;
-            while (in > 0 && arr[in - 1] >= temp) {
-                arr[in] = arr[in - 1];
-                --in;
+        for(int i = 1;i<arr.length;i++){
+            int lIndex = i;
+            while(lIndex>0 && arr[lIndex]<arr[lIndex-1]){
+                SortCommon.exchange(arr, lIndex, lIndex-1);
+                lIndex--;
             }
-            arr[in] = temp;
+            SortCommon.print("排序过程", arr);
         }
-
-        // 打印------------------------
-        for (int k = 0; k < arr.length; k++) {
-            System.out.print(arr[k] + " ");
-        }
+        SortCommon.print("排序结果", arr);
     }
 
 }

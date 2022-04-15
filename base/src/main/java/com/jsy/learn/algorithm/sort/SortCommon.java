@@ -14,7 +14,7 @@ public class SortCommon {
         for(int i=0;i<length;i++){
             arr[i] = new Random().nextInt(maxValue);
         }
-        print("生成数组 ",arr);
+        print("生成数组",arr);
         return arr;
     }
 
