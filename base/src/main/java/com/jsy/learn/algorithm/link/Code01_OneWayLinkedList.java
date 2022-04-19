@@ -5,7 +5,7 @@ package com.jsy.learn.algorithm.link;
  */
 public class Code01_OneWayLinkedList<T> {
 
-    Node head;
+    Node first;
     int size;
 
     class Node<T> {
@@ -16,12 +16,12 @@ public class Code01_OneWayLinkedList<T> {
 
     //尾添加
     void addLast(T t){
-        if(head == null){
-            head = new Node(t);
+        if(first == null){
+            first = new Node(t);
             return;
         }
 
-        Node cur = head;
+        Node cur = first;
         while(cur.next != null){
             cur = cur.next;
         }
@@ -30,13 +30,13 @@ public class Code01_OneWayLinkedList<T> {
 
     //翻转
     public void reverse() {
-        if(head == null){
+        if(first == null){
             return;
         }
 
         //1 <- 2 <- 3 <- 4
         Node pre = null;        //前节点
-        Node cur = head;        //当前节点
+        Node cur = first;        //当前节点
         Node next = null;       //下节点
 
         while(cur != null){
@@ -46,7 +46,7 @@ public class Code01_OneWayLinkedList<T> {
             pre = cur;         //变量右移 -> 当前节点 转为    前节点
             cur = next;        //变量右移 -> 下节点   转为   当前节点
         }
-        head = pre;
+        first = pre;
     }
 
     /**
@@ -55,15 +55,15 @@ public class Code01_OneWayLinkedList<T> {
      * 2.遇到1后,其前节点next = 其后不为1节点
      */
     void delete(T t){
-        if(head == null){
+        if(first == null){
             return;
         }
 
         //1.遍历找出第一个不为1的节点设置为头结点,此前为1节点跳过即删除了
-        Node cur = head;
+        Node cur = first;
         while(cur != null){
             if( ! cur.data.equals(t) ){
-                head = cur;
+                first = cur;
                 break;
             }
         }
@@ -82,12 +82,12 @@ public class Code01_OneWayLinkedList<T> {
     }
 
     void myPrint(){
-        if(head == null){
+        if(first == null){
             System.out.println("{}");
             return;
         }
 
-        Node cur = head;
+        Node cur = first;
         while(cur != null){
             System.out.print(cur.data + " ");
             cur = cur.next;
