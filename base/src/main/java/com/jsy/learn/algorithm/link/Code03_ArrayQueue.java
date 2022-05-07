@@ -3,7 +3,7 @@ package com.jsy.learn.algorithm.link;
 import java.util.Arrays;
 
 /**
- * 双向链表
+ * 队列
  */
 public class Code03_ArrayQueue {
 
