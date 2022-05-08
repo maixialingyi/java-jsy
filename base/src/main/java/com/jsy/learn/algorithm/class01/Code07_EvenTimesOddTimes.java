@@ -1,5 +1,4 @@
-package com.jsy.learn.algorithm;
-
+package com.jsy.learn.algorithm.class01;
 /**
  * 异或运算：相同为0，不同为1   ->  忽略进位
  * 同或运算：相同为1，不同为0
@@ -8,7 +7,7 @@ package com.jsy.learn.algorithm;
  * eor & (~eor + 1)   提取出最右的1
  * 多个数异或运算结果一样
  */
-public class EvenTimesOddTimes {
+public class Code07_EvenTimesOddTimes {
 
 	//arr中，只有一种数，出现奇数次
 	//偶数个的数 异或后 = 0 最有剩下奇数个的数值
@@ -22,7 +21,6 @@ public class EvenTimesOddTimes {
 
 	// arr中，有两种数，出现奇数次
 	public static void printOddTimesNum2(int[] arr) {
-		//得出两个奇数个数值的异或值
 		int eor = 0;
 		for (int i = 0; i < arr.length; i++) {
 			eor ^= arr[i];
@@ -32,7 +30,7 @@ public class EvenTimesOddTimes {
 		// eor必然有一个位置上是1
 		// 提取出最右的1，两奇数肯定在此位上 一个为0  一个为1
 		// 通过次位可分开两数
-		int rightOne = eor & (~eor + 1);
+		int rightOne = eor & (~eor + 1); // 提取出最右的1
 		int onlyOne = 0; // eor'
 		for (int i = 0 ; i < arr.length;i++) {
 			if ((arr[i] & rightOne) != 0) {
