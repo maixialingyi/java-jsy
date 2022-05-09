@@ -3,7 +3,7 @@ package com.jsy.learn.algorithm;
 /**
  * 有序数组，指定值查找
  */
-public class Code014_BSExist_二分查找 {
+public class Code019_BSExist_二分查找 {
 
 	public static boolean exist(int[] sortedArr, int num) {
 		if (sortedArr == null || sortedArr.length == 0) {

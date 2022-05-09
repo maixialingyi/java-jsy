@@ -18,7 +18,7 @@ package com.jsy.learn.algorithm;
  * 5右边比5大的数  0个
  * 归并： 左组元素跟右组元素比，小于则记录累加
  */
-public class Code029_SmallSum_求小和_递归_归并 {
+public class Code014_SmallSum_求小和_递归_归并 {
 
 	public static int smallSum(int[] arr) {
 		if (arr == null || arr.length < 2) {

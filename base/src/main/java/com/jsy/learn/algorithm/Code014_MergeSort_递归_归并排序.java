@@ -6,7 +6,7 @@ package com.jsy.learn.algorithm;
  *
  * 归并排序： 内部有序，外部无序  组内不比较，组间比较，减少比较替换次数
  */
-public class Code029_MergeSort_递归_归并排序 {
+public class Code014_MergeSort_递归_归并排序 {
 
 	/** 递归 + 归并 方法实现*/
 	public static void mergeSort1(int[] arr) {
