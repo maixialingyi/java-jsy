@@ -1,23 +1,34 @@
-package com.jsy.learn.algorithm.class04;
+package com.jsy.learn.algorithm;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class Code04_HeapSort {
+/**
+ * 1，先让整个数组都变成大根堆结构，建立堆的过程:
+ *     1)从上到下的方法，时间复杂度为O(N*logN)
+ *     2)从下到上的方法，时间复杂度为O(N)
+ * 2，把堆的最大值和堆末尾的值交换，然后减少堆的大小之后，再去调整堆，一直周而复始，时间复杂度为O(N*logN)
+ * 3，堆的大小减小成0之后，排序完成
+ */
+public class Code028_HeapSort_大根堆排序 {
 
 	// 堆排序额外空间复杂度O(1)
 	public static void heapSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		// O(N*logN)
+		// 1)从上到下的方法，时间复杂度为O(N*logN)
 //		for (int i = 0; i < arr.length; i++) { // O(N)
 //			heapInsert(arr, i); // O(logN)
 //		}
+		//2)从下到上的方法，时间复杂度为O(N)
 		for (int i = arr.length - 1; i >= 0; i--) {
 			heapify(arr, i, arr.length);
 		}
 		int heapSize = arr.length;
+
+		//最大根换到最后一位  --> 堆结构维护
+		//当前最大根换到倒数第二位 --> 堆结构维护
 		swap(arr, 0, --heapSize);
 		// O(N*logN)
 		while (heapSize > 0) { // O(N)
