@@ -1,11 +1,11 @@
-package com.jsy.learn.algorithm.class04;
+package com.jsy.learn.algorithm;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
-public class Code03_Heap02 {
+public class Code028_Heap02_大根堆java对象 {
 
 	public static class MyHeap<T> {
 		private ArrayList<T> heap;
