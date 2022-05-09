@@ -1,11 +1,11 @@
-package com.jsy.learn.algorithm.class01;
+package com.jsy.learn.algorithm;
 
 import java.util.Arrays;
 
 /**
  * 有序数组中 查找等于X最左侧元素
  */
-public class Code05_BSNearLeft {
+public class Code014_BSNearLeft_二分查找最左 {
 
 	// 在arr上，找满足>=value的最左位置
 	public static int nearestIndex(int[] arr, int value) {

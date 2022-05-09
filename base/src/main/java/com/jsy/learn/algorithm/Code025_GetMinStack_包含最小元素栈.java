@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm.class02;
+package com.jsy.learn.algorithm;
 
 import java.util.Stack;
 
@@ -7,7 +7,7 @@ import java.util.Stack;
  * 1）pop、push、getMin操作的时间复杂度都是 O(1)。
  * 2）设计的栈类型可以使用现成的栈结构。
  */
-public class Code05_GetMinStack {
+public class Code025_GetMinStack_包含最小元素栈 {
 
 	public static class MyStack1 {
 		private Stack<Integer> stackData;

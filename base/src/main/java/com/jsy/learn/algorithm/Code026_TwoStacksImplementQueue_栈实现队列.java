@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm.class02;
+package com.jsy.learn.algorithm;
 
 import java.util.Stack;
 
@@ -6,7 +6,7 @@ import java.util.Stack;
  * 两个栈实现队列
  * 添加进stackPush，当stackPop为空时导入，即颠倒顺序，从pop中获取
  */
-public class Code06_TwoStacksImplementQueue {
+public class Code026_TwoStacksImplementQueue_栈实现队列 {
 
 	public static class TwoStacksQueue {
 		public Stack<Integer> stackPush;

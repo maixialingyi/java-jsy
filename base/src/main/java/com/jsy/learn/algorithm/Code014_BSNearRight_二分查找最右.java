@@ -1,8 +1,8 @@
-package com.jsy.learn.algorithm.class01;
+package com.jsy.learn.algorithm;
 
 import java.util.Arrays;
 
-public class Code05_BSNearRight {
+public class Code014_BSNearRight_二分查找最右 {
 
 	// 在arr上，找满足<=value的最右位置
 	public static int nearestIndex(int[] arr, int value) {

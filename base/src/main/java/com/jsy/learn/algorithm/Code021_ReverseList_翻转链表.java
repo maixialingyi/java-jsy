@@ -1,11 +1,11 @@
-package com.jsy.learn.algorithm.class02;
+package com.jsy.learn.algorithm;
 
 import java.util.ArrayList;
 
 /**
  * 翻转链表
  */
-public class Code01_ReverseList {
+public class Code021_ReverseList_翻转链表 {
 
 	public static class Node {
 		public int value;

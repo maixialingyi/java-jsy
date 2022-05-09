@@ -1,9 +1,9 @@
-package com.jsy.learn.algorithm.class02;
+package com.jsy.learn.algorithm;
 
 /**
  * 删除链表给定值
  */
-public class Code02_DeleteGivenValue {
+public class Code022_DeleteGivenValue_删除链表 {
 
 	public static class Node {
 		public int value;

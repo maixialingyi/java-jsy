@@ -1,42 +1,36 @@
-package com.jsy.learn.algorithm.class01;
+package com.jsy.learn.algorithm;
 
 import java.util.Arrays;
-
 /**
- * 选择排序: 相邻比较,变量标记最小下标,遍历完成最小下标与起始下标互换位置
- * arr[0～N-1]范围上，找到最小值下标，与起始下标0互换位置
- * arr[1～N-1]范围上，找到最小值下标，与起始下标1互换位置
- * arr[2～N-1]范围上，找到最小值下标，与起始下标2互换位置
- * …
- * arr[N-1～N-1]范围上，找到最小值位置，与起始下标N-1互换位置
+ * 冒泡排序: 相邻比较,前大换位,后半段已有序不参与下次运算
+ * arr[0～N-1]范围上,前大换位,最后arr[N-2]和arr[N-1]
+ * arr[0～N-2]范围上,前大换位,最后arr[N-3]和arr[N-2]
+ * arr[0～N-3]范围上,前大换位,最后arr[N-4]和arr[N-3]
+ * ......
+ * arr[0～1]范围上,前大换位,最后arr[0]和arr[1]
  * <p>
- * 第一次遍历: 寻址N次   + 比较N-1次 + 替换1次
- * 第二次遍历: 寻址N-1次 + 比较N-2次 + 替换1次
- * 等差1数列求和公式:(an2 + a1n)/2 + N次替换 -> O(N2)
+ * 不变性:每次开始循环时,上次循环的结束下标(out)后的数据都是不变有序的
  */
-public class Code01_SelectionSort {
+public class Code012_BubbleSort_冒泡排序 {
 
-	public static void selectionSort(int[] arr) {
+	public static void bubbleSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		// 0～n-1
-		// 1～n-1
-		// 2～n-1
-		for (int i = 0; i < arr.length - 1; i++) { // i ~ N-1
-			// 最小值在哪个位置上  i～n-1
-			int minIndex = i;
-			for (int j = i + 1; j < arr.length; j++) { // i ~ N-1 上找最小值的下标 
-				minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+		for (int e = arr.length - 1; e > 0; e--) { // 0 ~ e
+			for (int i = 0; i < e; i++) {
+				if (arr[i] > arr[i + 1]) {
+					swap(arr, i, i + 1);
+				}
 			}
-			swap(arr, i, minIndex);
 		}
 	}
 
+	// 交换arr的i和j位置上的值
 	public static void swap(int[] arr, int i, int j) {
-		int tmp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = tmp;
+		arr[i] = arr[i] ^ arr[j];
+		arr[j] = arr[i] ^ arr[j];
+		arr[i] = arr[i] ^ arr[j];
 	}
 
 	// for test
@@ -96,7 +90,7 @@ public class Code01_SelectionSort {
 	}
 
 	// for test
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		int testTime = 500000;
 		int maxSize = 100;
 		int maxValue = 100;
@@ -104,12 +98,10 @@ public class Code01_SelectionSort {
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			selectionSort(arr1);
+			bubbleSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
 				succeed = false;
-				printArray(arr1);
-				printArray(arr2);
 				break;
 			}
 		}
@@ -117,7 +109,7 @@ public class Code01_SelectionSort {
 
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		selectionSort(arr);
+		bubbleSort(arr);
 		printArray(arr);
 	}
 

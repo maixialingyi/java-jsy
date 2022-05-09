@@ -1,12 +1,12 @@
-package com.jsy.learn.algorithm.class03;
+package com.jsy.learn.algorithm;
 
 /**
  * 递归 + 归并 实现排序
  * 非递归方法实现
  *
- * 归并排序： 内部有序，外部无序
+ * 归并排序： 内部有序，外部无序  组内不比较，组间比较，减少比较替换次数
  */
-public class Code01_MergeSort {
+public class Code029_MergeSort_递归_归并排序 {
 
 	/** 递归 + 归并 方法实现*/
 	public static void mergeSort1(int[] arr) {

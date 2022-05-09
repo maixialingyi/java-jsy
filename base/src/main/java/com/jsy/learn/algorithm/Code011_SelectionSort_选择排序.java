@@ -1,36 +1,42 @@
-package com.jsy.learn.algorithm.class01;
+package com.jsy.learn.algorithm;
 
 import java.util.Arrays;
-/**
- * 插入排序: 标记下标向前比较,小于前互换,大于前或到下标0结束
- * arr[0～1]范围上,从arr[1]开始往前比较,小于前互换,大于前或到下标0结束
- * arr[0～2]范围上,从arr[2]开始往前比较
- * …………
- * arr[0～N]范围上,从arr[N]开始往前比较
- */
-public class Code03_InsertionSort {
 
-	public static void insertionSort(int[] arr) {
+/**
+ * 选择排序: 相邻比较,变量标记最小下标,遍历完成最小下标与起始下标互换位置
+ * arr[0～N-1]范围上，找到最小值下标，与起始下标0互换位置
+ * arr[1～N-1]范围上，找到最小值下标，与起始下标1互换位置
+ * arr[2～N-1]范围上，找到最小值下标，与起始下标2互换位置
+ * …
+ * arr[N-1～N-1]范围上，找到最小值位置，与起始下标N-1互换位置
+ * <p>
+ * 第一次遍历: 寻址N次   + 比较N-1次 + 替换1次
+ * 第二次遍历: 寻址N-1次 + 比较N-2次 + 替换1次
+ * 等差1数列求和公式:(an2 + a1n)/2 + N次替换 -> O(N2)
+ */
+public class Code011_SelectionSort_选择排序 {
+
+	public static void selectionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		// 0~0 有序的
-		// 0~i 想有序
-		for (int i = 1; i < arr.length; i++) { // 0 ~ i 做到有序
-			
-			// arr[i]往前看，一直交换到合适的位置停止
-			// ...(<=)  ?       <- i
-			for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-				swap(arr, j, j + 1);
+		// 0～n-1
+		// 1～n-1
+		// 2～n-1
+		for (int i = 0; i < arr.length - 1; i++) { // i ~ N-1
+			// 最小值在哪个位置上  i～n-1
+			int minIndex = i;
+			for (int j = i + 1; j < arr.length; j++) { // i ~ N-1 上找最小值的下标 
+				minIndex = arr[j] < arr[minIndex] ? j : minIndex;
 			}
+			swap(arr, i, minIndex);
 		}
 	}
 
-	// i和j是一个位置的话，会出错
 	public static void swap(int[] arr, int i, int j) {
-		arr[i] = arr[i] ^ arr[j];
-		arr[j] = arr[i] ^ arr[j];
-		arr[i] = arr[i] ^ arr[j];
+		int tmp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = tmp;
 	}
 
 	// for test
@@ -40,13 +46,9 @@ public class Code03_InsertionSort {
 
 	// for test
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
-		// Math.random() ->  [0,1) 所有的小数，等概率返回一个
-		// Math.random() * N -> [0,N) 所有小数，等概率返回一个
-		// (int)(Math.random() * N) -> [0,N-1] 所有的整数，等概率返回一个
-		int[] arr = new int[(int) ((maxSize + 1) * Math.random())]; // 长度随机 
+		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = (int) ((maxValue + 1) * Math.random()) 
-					- (int) (maxValue * Math.random());
+			arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
 		}
 		return arr;
 	}
@@ -96,18 +98,18 @@ public class Code03_InsertionSort {
 	// for test
 	public static void main(String[] args) {
 		int testTime = 500000;
-		int maxSize = 100; // 随机数组的长度0～100
-		int maxValue = 100;// 值：-100～100
+		int maxSize = 100;
+		int maxValue = 100;
 		boolean succeed = true;
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			insertionSort(arr1);
+			selectionSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
-				// 打印arr1
-				// 打印arr2
 				succeed = false;
+				printArray(arr1);
+				printArray(arr2);
 				break;
 			}
 		}
@@ -115,7 +117,7 @@ public class Code03_InsertionSort {
 
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		insertionSort(arr);
+		selectionSort(arr);
 		printArray(arr);
 	}
 

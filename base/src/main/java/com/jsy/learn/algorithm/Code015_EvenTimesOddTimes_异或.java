@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm.class01;
+package com.jsy.learn.algorithm;
 /**
  * 异或运算：相同为0，不同为1   ->  忽略进位
  * 同或运算：相同为1，不同为0
@@ -7,7 +7,7 @@ package com.jsy.learn.algorithm.class01;
  * eor & (~eor + 1)   提取出最右的1
  * 多个数异或运算结果一样
  */
-public class Code07_EvenTimesOddTimes {
+public class Code015_EvenTimesOddTimes_异或 {
 
 	//arr中，只有一种数，出现奇数次
 	//偶数个的数 异或后 = 0 最有剩下奇数个的数值

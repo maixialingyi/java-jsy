@@ -1,9 +1,9 @@
-package com.jsy.learn.algorithm.class02;
+package com.jsy.learn.algorithm;
 
 /**
  * 队列：环形数组
  */
-public class Code04_RingArray {
+public class Code024_RingArray_数组实现队列 {
 
 	public static class MyQueue {
 		private int[] arr;

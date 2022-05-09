@@ -1,9 +1,9 @@
-package com.jsy.learn.algorithm.class01;
+package com.jsy.learn.algorithm;
 
 /**
  * 有序数组，指定值查找
  */
-public class Code04_BSExist {
+public class Code014_BSExist_二分查找 {
 
 	public static boolean exist(int[] sortedArr, int num) {
 		if (sortedArr == null || sortedArr.length == 0) {

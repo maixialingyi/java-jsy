@@ -1,32 +1,32 @@
-package com.jsy.learn.algorithm.class01;
+package com.jsy.learn.algorithm;
 
 import java.util.Arrays;
 /**
- * 冒泡排序: 相邻比较,前大换位,后半段已有序不参与下次运算
- * arr[0～N-1]范围上,前大换位,最后arr[N-2]和arr[N-1]
- * arr[0～N-2]范围上,前大换位,最后arr[N-3]和arr[N-2]
- * arr[0～N-3]范围上,前大换位,最后arr[N-4]和arr[N-3]
- * ......
- * arr[0～1]范围上,前大换位,最后arr[0]和arr[1]
- * <p>
- * 不变性:每次开始循环时,上次循环的结束下标(out)后的数据都是不变有序的
+ * 插入排序: 标记下标向前比较,小于前互换,大于前或到下标0结束
+ * arr[0～1]范围上,从arr[1]开始往前比较,小于前互换,大于前或到下标0结束
+ * arr[0～2]范围上,从arr[2]开始往前比较
+ * …………
+ * arr[0～N]范围上,从arr[N]开始往前比较
  */
-public class Code02_BubbleSort {
+public class Code013_InsertionSort_插入排序 {
 
-	public static void bubbleSort(int[] arr) {
+	public static void insertionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		for (int e = arr.length - 1; e > 0; e--) { // 0 ~ e
-			for (int i = 0; i < e; i++) {
-				if (arr[i] > arr[i + 1]) {
-					swap(arr, i, i + 1);
-				}
+		// 0~0 有序的
+		// 0~i 想有序
+		for (int i = 1; i < arr.length; i++) { // 0 ~ i 做到有序
+			
+			// arr[i]往前看，一直交换到合适的位置停止
+			// ...(<=)  ?       <- i
+			for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
+				swap(arr, j, j + 1);
 			}
 		}
 	}
 
-	// 交换arr的i和j位置上的值
+	// i和j是一个位置的话，会出错
 	public static void swap(int[] arr, int i, int j) {
 		arr[i] = arr[i] ^ arr[j];
 		arr[j] = arr[i] ^ arr[j];
@@ -40,9 +40,13 @@ public class Code02_BubbleSort {
 
 	// for test
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
-		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
+		// Math.random() ->  [0,1) 所有的小数，等概率返回一个
+		// Math.random() * N -> [0,N) 所有小数，等概率返回一个
+		// (int)(Math.random() * N) -> [0,N-1] 所有的整数，等概率返回一个
+		int[] arr = new int[(int) ((maxSize + 1) * Math.random())]; // 长度随机 
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
+			arr[i] = (int) ((maxValue + 1) * Math.random()) 
+					- (int) (maxValue * Math.random());
 		}
 		return arr;
 	}
@@ -90,17 +94,19 @@ public class Code02_BubbleSort {
 	}
 
 	// for test
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		int testTime = 500000;
-		int maxSize = 100;
-		int maxValue = 100;
+		int maxSize = 100; // 随机数组的长度0～100
+		int maxValue = 100;// 值：-100～100
 		boolean succeed = true;
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			bubbleSort(arr1);
+			insertionSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
+				// 打印arr1
+				// 打印arr2
 				succeed = false;
 				break;
 			}
@@ -109,7 +115,7 @@ public class Code02_BubbleSort {
 
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		bubbleSort(arr);
+		insertionSort(arr);
 		printArray(arr);
 	}
 

@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm.class02;
+package com.jsy.learn.algorithm;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * 双向链表 实现 队列
  */
-public class Code03_DoubleEndsQueueToStackAndQueue {
+public class Code023_DoubleEndsQueueToStackAndQueue_双向链表实现队列 {
 
 	public static class Node<T> {
 		public T value;

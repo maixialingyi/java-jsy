@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm.class02;
+package com.jsy.learn.algorithm;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * 两队列实现栈
  */
-public class Code07_TwoQueueImplementStack {
+public class Code027_TwoQueueImplementStack_队列实现栈 {
 
 	public static class TwoQueueStack<T> {
 		public Queue<T> queue;
