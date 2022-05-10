@@ -17,16 +17,17 @@ public class Code028_HeapSort_大根堆排序 {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		// 1)从上到下的方法，时间复杂度为O(N*logN)
+		//建堆 1)从最下层向上比较，时间复杂度为O(N*logN)
 //		for (int i = 0; i < arr.length; i++) { // O(N)
 //			heapInsert(arr, i); // O(logN)
 //		}
-		//2)从下到上的方法，时间复杂度为O(N)
+		//建堆 2)从最下层向下比较，移动指针上移，时间复杂度为O(N)
 		for (int i = arr.length - 1; i >= 0; i--) {
 			heapify(arr, i, arr.length);
 		}
 		int heapSize = arr.length;
 
+		//排序
 		//最大根换到最后一位  --> 堆结构维护
 		//当前最大根换到倒数第二位 --> 堆结构维护
 		swap(arr, 0, --heapSize);
