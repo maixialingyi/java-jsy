@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * 2，把堆的最大值和堆末尾的值交换，然后减少堆的大小之后，再去调整堆，一直周而复始，时间复杂度为O(N*logN)
  * 3，堆的大小减小成0之后，排序完成
  */
-public class Code028_HeapSort_大根堆排序 {
+public class C05_大根堆排序_HeapSort {
 
 	// 堆排序额外空间复杂度O(1)
 	public static void heapSort(int[] arr) {

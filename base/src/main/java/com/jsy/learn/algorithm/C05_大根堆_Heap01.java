@@ -27,7 +27,7 @@ package com.jsy.learn.algorithm;
  * 5）堆结构的增大和减少
  * 6）优先级队列结构，就是堆结构
  */
-public class Code028_Heap01_大根堆 {
+public class C05_大根堆_Heap01 {
 
 	/**
      * 大根堆实现

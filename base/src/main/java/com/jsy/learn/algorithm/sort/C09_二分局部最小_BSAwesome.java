@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.sort;
 
 /**
  * 局部最小  1）0下标元素 < 1下标元素          0下标局部最小
@@ -6,7 +6,7 @@ package com.jsy.learn.algorithm;
  *  *      3）中间元素小于左右元素            局部最小
  *  *      条件：无序，相邻不相等   只返回一个局部最小就可以
  */
-public class Code019_BSAwesome_二分局部最小 {
+public class C09_二分局部最小_BSAwesome {
 
 	public static int getLessIndex(int[] arr) {
 		if (arr == null || arr.length == 0) {

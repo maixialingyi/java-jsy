@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * 两队列实现栈
  */
-public class Code027_TwoQueueImplementStack_队列实现栈 {
+public class C04_队列实现栈_TwoQueueImplementStack {
 
 	public static class TwoQueueStack<T> {
 		public Queue<T> queue;

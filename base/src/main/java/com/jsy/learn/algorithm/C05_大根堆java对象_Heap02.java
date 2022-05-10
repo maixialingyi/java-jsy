@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
-public class Code028_Heap02_大根堆java对象 {
+public class C05_大根堆java对象_Heap02 {
 
 	public static class MyHeap<T> {
 		private ArrayList<T> heap;

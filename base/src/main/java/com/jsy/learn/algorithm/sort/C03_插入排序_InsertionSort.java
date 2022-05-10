@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.sort;
 
 import java.util.Arrays;
 /**
@@ -8,7 +8,7 @@ import java.util.Arrays;
  * …………
  * arr[0～N]范围上,从arr[N]开始往前比较
  */
-public class Code013_InsertionSort_插入排序 {
+public class C03_插入排序_InsertionSort {
 
 	public static void insertionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {

@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.sort;
 
 import java.util.Arrays;
 
@@ -14,7 +14,7 @@ import java.util.Arrays;
  * 第二次遍历: 寻址N-1次 + 比较N-2次 + 替换1次
  * 等差1数列求和公式:(an2 + a1n)/2 + N次替换 -> O(N2)
  */
-public class Code011_SelectionSort_选择排序 {
+public class C01_选择排序_SelectionSort {
 
 	public static void selectionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {

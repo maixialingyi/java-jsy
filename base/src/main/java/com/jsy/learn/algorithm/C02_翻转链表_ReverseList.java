@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * 翻转链表
  */
-public class Code021_ReverseList_翻转链表 {
+public class C02_翻转链表_ReverseList {
 
 	public static class Node {
 		public int value;

@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.sort;
 
 import java.util.Arrays;
 /**
@@ -11,7 +11,7 @@ import java.util.Arrays;
  * <p>
  * 不变性:每次开始循环时,上次循环的结束下标(out)后的数据都是不变有序的
  */
-public class Code012_BubbleSort_冒泡排序 {
+public class C02_冒泡排序_BubbleSort {
 
 	public static void bubbleSort(int[] arr) {
 		if (arr == null || arr.length < 2) {

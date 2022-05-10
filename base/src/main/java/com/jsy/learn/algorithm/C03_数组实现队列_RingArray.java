@@ -3,7 +3,7 @@ package com.jsy.learn.algorithm;
 /**
  * 队列：环形数组
  */
-public class Code024_RingArray_数组实现队列 {
+public class C03_数组实现队列_RingArray {
 
 	public static class MyQueue {
 		private int[] arr;

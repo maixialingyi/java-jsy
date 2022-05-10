@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.sort;
 
 /**
  * 求数组arr[L..R]中的最大值，怎么用递归方法实现。
@@ -19,7 +19,7 @@ package com.jsy.learn.algorithm;
  * 如果 log(b,a) > d，复杂度为O(N^log(b,a))
  * 如果 log(b,a) == d，复杂度为O(N^d  * logN)
  */
-public class Code014_GetMax_递归 {
+public class C04_递归_GetMax {
 
 	// 求arr中的最大值
 	public static int getMax(int[] arr) {

@@ -3,7 +3,7 @@ package com.jsy.learn.algorithm;
 /**
  * 删除链表给定值
  */
-public class Code022_DeleteGivenValue_删除链表 {
+public class C02_删除链表_DeleteGivenValue {
 
 	public static class Node {
 		public int value;

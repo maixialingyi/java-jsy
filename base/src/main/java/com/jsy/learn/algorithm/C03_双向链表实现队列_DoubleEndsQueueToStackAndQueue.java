@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * 双向链表 实现 队列
  */
-public class Code023_DoubleEndsQueueToStackAndQueue_双向链表实现队列 {
+public class C03_双向链表实现队列_DoubleEndsQueueToStackAndQueue {
 
 	public static class Node<T> {
 		public T value;

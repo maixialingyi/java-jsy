@@ -7,7 +7,7 @@ package com.jsy.learn.algorithm;
  * eor & (~eor + 1)   提取出最右的1
  * 多个数异或运算结果一样
  */
-public class Code018_EvenTimesOddTimes_异或 {
+public class C01_异或_EvenTimesOddTimes {
 
 	//arr中，只有一种数，出现奇数次
 	//偶数个的数 异或后 = 0 最有剩下奇数个的数值

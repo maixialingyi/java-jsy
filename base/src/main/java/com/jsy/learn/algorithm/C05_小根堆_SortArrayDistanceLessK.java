@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
  *
  * 请选择一个合适的排序策略，对这个数组进行排序。
  */
-public class Code028_SortArrayDistanceLessK_小根堆 {
+public class C05_小根堆_SortArrayDistanceLessK {
 
 	public void sortedArrDistanceLessK(int[] arr, int k) {
 		// 默认小根堆,jdk自带，优先级队列即小跟堆实现

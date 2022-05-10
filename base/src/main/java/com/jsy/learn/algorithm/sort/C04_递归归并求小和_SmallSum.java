@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.sort;
 
 /**
  * 在一个数组中，一个数左边比它小的数的总和，叫数的小和，所有数的小和累加起来，叫数组小和。求数组小和。
@@ -18,7 +18,7 @@ package com.jsy.learn.algorithm;
  * 5右边比5大的数  0个
  * 归并： 左组元素跟右组元素比，小于则记录累加
  */
-public class Code014_SmallSum_求小和_递归_归并 {
+public class C04_递归归并求小和_SmallSum {
 
 	public static int smallSum(int[] arr) {
 		if (arr == null || arr.length < 2) {

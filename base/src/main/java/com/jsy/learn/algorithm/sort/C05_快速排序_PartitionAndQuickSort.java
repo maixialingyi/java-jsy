@@ -1,9 +1,9 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.sort;
 
 /**
  * 快速排序
  */
-public class Code015_PartitionAndQuickSort_快速排序 {
+public class C05_快速排序_PartitionAndQuickSort {
 
 	public static void swap(int[] arr, int i, int j) {
 		int tmp = arr[i];
