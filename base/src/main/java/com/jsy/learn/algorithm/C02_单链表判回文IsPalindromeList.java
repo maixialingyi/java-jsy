@@ -1,8 +1,12 @@
-package com.jsy.learn.algorithm.class06;
+package com.jsy.learn.algorithm;
 
 import java.util.Stack;
 
-public class Code02_IsPalindromeList {
+/**
+ * 给定一个单链表的头节点head，请判断该链表是否为回文结构
+ * 回文：数据对称 如 12321   1221
+ */
+public class C02_单链表判回文IsPalindromeList {
 
 	public static class Node {
 		public int value;
@@ -14,6 +18,7 @@ public class Code02_IsPalindromeList {
 	}
 
 	// need n extra space
+	// 笔试：遍历数据放入栈，取出栈即逆序，与原数组挨个比较，都相同则是回文
 	public static boolean isPalindrome1(Node head) {
 		Stack<Node> stack = new Stack<Node>();
 		Node cur = head;
@@ -30,7 +35,9 @@ public class Code02_IsPalindromeList {
 		return true;
 	}
 
-	// need n/2 extra space
+	// need n/2 extra space   省一半栈
+	// 快慢指针找出 奇数长度中点，偶数长度下中点 ，
+	// 中点后数据放入栈，弹出比较   12321  21放入栈，循环栈 1 2 与原数组比较
 	public static boolean isPalindrome2(Node head) {
 		if (head == null || head.next == null) {
 			return true;
@@ -55,8 +62,11 @@ public class Code02_IsPalindromeList {
 		return true;
 	}
 
-	// need O(1) extra space
+	// 额外空间 O(1)
+	// 快慢指针找出 奇数长度中点，偶数长度下中点 ，
+	// 中点后翻转，两头遍历比较，最后再翻转恢复原数组   1->2->3->2->1   1->2->3<-2<-1两头遍历  恢复  1->2->3->2->1
 	public static boolean isPalindrome3(Node head) {
+		//找中点
 		if (head == null || head.next == null) {
 			return true;
 		}
@@ -66,6 +76,8 @@ public class Code02_IsPalindromeList {
 			n1 = n1.next; // n1 -> mid
 			n2 = n2.next.next; // n2 -> end
 		}
+
+		//
 		n2 = n1.next; // n2 -> right part first node
 		n1.next = null; // mid.next -> null
 		Node n3 = null;

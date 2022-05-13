@@ -1,8 +1,8 @@
-package com.jsy.learn.algorithm.class06;
+package com.jsy.learn.algorithm;
 
 import java.util.ArrayList;
 
-public class Code01_LinkedListMid {
+public class C02_单链表取中_LinkedListMid {
 
 	public static class Node {
 		public int value;
@@ -13,12 +13,13 @@ public class Code01_LinkedListMid {
 		}
 	}
 
+	//面试用 输入链表头节点，奇数长度返回中点，偶数长度返回上中点
 	public static Node midOrUpMidNode(Node head) {
 		if (head == null || head.next == null || head.next.next == null) {
 			return head;
 		}
-		Node slow = head.next;
-		Node fast = head.next.next;
+		Node slow = head.next;      //满指针
+		Node fast = head.next.next; //快指针
 		while (fast.next != null && fast.next.next != null) {
 			slow = slow.next;
 			fast = fast.next.next;
@@ -26,6 +27,7 @@ public class Code01_LinkedListMid {
 		return slow;
 	}
 
+	//面试用 输入链表头节点，奇数长度返回中点，偶数长度返回下中点
 	public static Node midOrDownMidNode(Node head) {
 		if (head == null || head.next == null) {
 			return head;
@@ -39,6 +41,7 @@ public class Code01_LinkedListMid {
 		return slow;
 	}
 
+	//面试用 输入链表头节点，奇数长度返回中点前一个，偶数长度返回上中点前一个
 	public static Node midOrUpMidPreNode(Node head) {
 		if (head == null || head.next == null || head.next.next == null) {
 			return null;
@@ -52,6 +55,7 @@ public class Code01_LinkedListMid {
 		return slow;
 	}
 
+	//面试用 输入链表头节点，奇数长度返回中点前一个，偶数长度返回下中点前一个
 	public static Node midOrDownMidPreNode(Node head) {
 		if (head == null || head.next == null) {
 			return null;
@@ -68,6 +72,7 @@ public class Code01_LinkedListMid {
 		return slow;
 	}
 
+	//笔试用
 	public static Node right1(Node head) {
 		if (head == null) {
 			return null;
@@ -80,7 +85,7 @@ public class Code01_LinkedListMid {
 		}
 		return arr.get((arr.size() - 1) / 2);
 	}
-
+	//笔试用
 	public static Node right2(Node head) {
 		if (head == null) {
 			return null;
@@ -93,7 +98,7 @@ public class Code01_LinkedListMid {
 		}
 		return arr.get(arr.size() / 2);
 	}
-
+	//笔试用
 	public static Node right3(Node head) {
 		if (head == null || head.next == null || head.next.next == null) {
 			return null;
@@ -106,7 +111,7 @@ public class Code01_LinkedListMid {
 		}
 		return arr.get((arr.size() - 3) / 2);
 	}
-
+	//笔试用
 	public static Node right4(Node head) {
 		if (head == null || head.next == null) {
 			return null;
