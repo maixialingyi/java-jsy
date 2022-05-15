@@ -74,25 +74,25 @@ public class C02_单链表环与相交_FindFirstIntersectNode {
 		Node cur2 = head2;
 		int n = 0;
 		while (cur1.next != null) {
-			n++;
+			n++;  //记录链表1长度
 			cur1 = cur1.next;
 		}
 		while (cur2.next != null) {
-			n--;
+			n--;  //算出 链表1长度 - 链表2长度
 			cur2 = cur2.next;
 		}
-		if (cur1 != cur2) {
+		if (cur1 != cur2) { //链表1 链表2 尾节点为同一个 即不相交
 			return null;
 		}
 		// n  :  链表1长度减去链表2长度的值
 		cur1 = n > 0 ? head1 : head2; // 谁长，谁的头变成cur1
 		cur2 = cur1 == head1 ? head2 : head1; // 谁短，谁的头变成cur2
-		n = Math.abs(n);
-		while (n != 0) {
+		n = Math.abs(n); //取绝对值
+		while (n != 0) { //取长数组的第n-1个节点,次处向后节点数于另个一个链表节点数相同
 			n--;
 			cur1 = cur1.next;
 		}
-		while (cur1 != cur2) {
+		while (cur1 != cur2) { //同时遍历  相等 即 相交节点
 			cur1 = cur1.next;
 			cur2 = cur2.next;
 		}
