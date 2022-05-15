@@ -1,6 +1,23 @@
-package com.jsy.learn.algorithm.class07;
+package com.jsy.learn.algorithm.tree;
 
-public class Code01_RecursiveTraversalBT {
+/**
+ *              1
+ *            /   \
+ *          2      3
+ *         / \    / \
+ *        4   5  6   7
+ *  先序: 任何子树的处理顺序都是，先头节点、再左子树、然后右子树  1 2 4 5 3 6 7
+ *  中序：任何子树的处理顺序都是，先左子树、再头节点、然后右子树  4 2 5 1 6 3 7
+ *  后序：任何子树的处理顺序都是，先左子树、再右子树、然后头节点  4 5 2 6 7 3 1
+ *
+ *  处理方式: 基于 递归序 做不同的处理
+ *  递归序: 	1 2 4 4 4 2 5 5 5 2
+ *         	1 3 6 6 6 3 7 7 7 3 1
+ *  		f(Node head) {
+ * 				pre(head.left);
+ * 				pre(head.right);
+ */
+public class C2_二叉树_递归先中后遍历_RecursiveTraversalBT {
 
 	public static class Node {
 		public int value;
@@ -12,14 +29,7 @@ public class Code01_RecursiveTraversalBT {
 		}
 	}
 
-	public static void f(Node head) {
-		if (head == null) {
-			return;
-		}
-		f(head.left);
-		f(head.right);
-	}
-
+	//先序遍历
 	public static void pre(Node head) {
 		if (head == null) {
 			return;
@@ -29,6 +39,7 @@ public class Code01_RecursiveTraversalBT {
 		pre(head.right);
 	}
 
+	//中序遍历
 	public static void in(Node head) {
 		if (head == null) {
 			return;
@@ -37,7 +48,7 @@ public class Code01_RecursiveTraversalBT {
 		System.out.println(head.value);
 		in(head.right);
 	}
-
+	//后序遍历
 	public static void pos(Node head) {
 		if (head == null) {
 			return;

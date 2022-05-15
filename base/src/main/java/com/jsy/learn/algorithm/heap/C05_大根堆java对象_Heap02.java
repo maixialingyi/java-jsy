@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.heap;
 
 import java.util.ArrayList;
 import java.util.Comparator;

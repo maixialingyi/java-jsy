@@ -2,7 +2,7 @@ package com.jsy.learn.algorithm.class07;
 
 import java.util.Stack;
 
-public class Code02_UnRecursiveTraversalBT {
+public class C21_二叉树_非递归左中右遍历_UnRecursiveTraversalBT {
 
 	public static class Node {
 		public int value;

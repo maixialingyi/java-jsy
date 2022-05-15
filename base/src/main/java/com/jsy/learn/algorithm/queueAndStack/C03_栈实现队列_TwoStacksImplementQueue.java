@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.queueAndStack;
 
 import java.util.Stack;
 

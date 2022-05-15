@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.queueAndStack;
 
 /**
  * 队列：环形数组

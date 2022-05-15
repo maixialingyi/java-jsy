@@ -1,4 +1,4 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.tree;
 
 import java.util.HashMap;
 
@@ -29,7 +29,7 @@ import java.util.HashMap;
  *           end  1              end  1
  */
 
-public class C06_前缀树_TrieTree {
+public class C1_前缀树_TrieTree {
 
 	//todo 数组实现
 	public static class Node1 {
