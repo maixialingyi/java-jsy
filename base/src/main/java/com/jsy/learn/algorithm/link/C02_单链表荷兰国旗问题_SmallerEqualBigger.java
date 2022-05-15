@@ -1,11 +1,11 @@
-package com.jsy.learn.algorithm;
+package com.jsy.learn.algorithm.link;
 
 /**
  * 将单向链表按某值划分成左边小、中间相等、右边大的形式
  * 笔试用: 把链表放入数组里，在数组上做partition 参考快速排序
  * 面试用: 分成小、中、大三部分，再把各个部分之间串起来  稳定
  */
-public class C03_单链表荷兰国旗问题_SmallerEqualBigger {
+public class C02_单链表荷兰国旗问题_SmallerEqualBigger {
 
 	public static class Node {
 		public int value;

@@ -1,8 +1,20 @@
-package com.jsy.learn.algorithm.class06;
+package com.jsy.learn.algorithm.link;
 
 import java.util.HashMap;
 
-public class Code04_CopyListWithRandom {
+/**
+ * 一种特殊的单链表节点类描述如下
+ * class Node {
+ * int value;
+ * Node next;
+ * Node rand;
+ * Node(int val) { value = val; }
+ * }
+ * rand可能指向链表中的任意一个节点，也可能指向null。
+ * 给定一个由Node节点类型组成的无环单链表的头节点 head，请实现一个函数完成这个链表的复制，并返回复制的新链表的头节点。
+ * 【要求】时间复杂度O(N)，额外空间复杂度O(1)
+ */
+public class C02_单链表_CopyListWithRandom {
 
 	public static class Node {
 		public int value;
@@ -32,15 +44,19 @@ public class Code04_CopyListWithRandom {
 		return map.get(head);
 	}
 
+	/**
+     *    N1 -> N2 -> N3->null
+	 * 1. N1 -> N1新 -> N2 -> N2新 -> N3 -> N3新 ->null
+	 * 2. 遍历一次取两个,N1的rand节点的next节点即是N1新的rand
+	 * 3. 遍历 奇数位上位老链表,偶数位上位新链表
+	 */
 	public static Node copyListWithRand2(Node head) {
 		if (head == null) {
 			return null;
 		}
 		Node cur = head;
 		Node next = null;
-		// copy node and link to every node
-		// 1 -> 2
-		// 1 -> 1' -> 2
+		// 老链表中插入复制节点 1. N1 -> N1新 -> N2 -> N2新 -> N3 -> N3新 ->null
 		while (cur != null) {
 			// cur 老
 			next = cur.next;
@@ -48,10 +64,10 @@ public class Code04_CopyListWithRandom {
 			cur.next.next = next;
 			cur = next;
 		}
+
+		// 设置新node rand
 		cur = head;
 		Node curCopy = null;
-		// set copy node rand
-		// 1 -> 1' -> 2 -> 2'
 		while (cur != null) {
 			// cur 老
 			// cur.next  新 copy
@@ -62,7 +78,7 @@ public class Code04_CopyListWithRandom {
 		}
 		Node res = head.next;
 		cur = head;
-		// split
+		// split 老新分离
 		while (cur != null) {
 			next = cur.next.next;
 			curCopy = cur.next;
