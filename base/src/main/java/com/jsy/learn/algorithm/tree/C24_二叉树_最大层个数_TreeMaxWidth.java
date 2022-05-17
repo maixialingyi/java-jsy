@@ -1,10 +1,10 @@
-package com.jsy.learn.algorithm.class07;
+package com.jsy.learn.algorithm.tree;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Code06_TreeMaxWidth {
+public class C24_二叉树_最大层个数_TreeMaxWidth {
 
 	public static class Node {
 		public int value;
@@ -22,14 +22,16 @@ public class Code06_TreeMaxWidth {
 		}
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(head);
+		// key  : Node
+		// value: 所在层数
 		HashMap<Node, Integer> levelMap = new HashMap<>();
-		levelMap.put(head, 1);
-		int curLevel = 1;
-		int curLevelNodes = 0;
+		levelMap.put(head, 1); //头在 第一层
+		int curLevel = 1;      //当前统计层
+		int curLevelNodes = 0; //当前层中节点个数 累计变量
 		int max = 0;
 		while (!queue.isEmpty()) {
-			Node cur = queue.poll();
-			int curNodeLevel = levelMap.get(cur);
+			Node cur = queue.poll();  //从队列中获取
+			int curNodeLevel = levelMap.get(cur); //从map中获取层数
 			if (cur.left != null) {
 				levelMap.put(cur.left, curNodeLevel + 1);
 				queue.add(cur.left);
@@ -39,8 +41,8 @@ public class Code06_TreeMaxWidth {
 				queue.add(cur.right);
 			}
 			if (curNodeLevel == curLevel) {
-				curLevelNodes++;
-			} else {
+				curLevelNodes++; //统计node数
+			} else { // 不相同,即换层了,新层开始
 				max = Math.max(max, curLevelNodes);
 				curLevel++;
 				curLevelNodes = 1;
@@ -56,10 +58,10 @@ public class Code06_TreeMaxWidth {
 		}
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(head);
-		Node curEnd = head;
-		Node nextEnd = null;
+		Node curEnd = head;  //当前层最右节点
+		Node nextEnd = null; //下一层最右节点
 		int max = 0;
-		int curLevelNodes = 0;
+		int curLevelNodes = 0; //当前层节点数
 		while (!queue.isEmpty()) {
 			Node cur = queue.poll();
 			if (cur.left != null) {
@@ -71,7 +73,7 @@ public class Code06_TreeMaxWidth {
 				nextEnd = cur.right;
 			}
 			curLevelNodes++;
-			if (cur == curEnd) {
+			if (cur == curEnd) { //当前节点为当前层的最右节点时
 				max = Math.max(max, curLevelNodes);
 				curLevelNodes = 0;
 				curEnd = nextEnd;

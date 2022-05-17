@@ -1,9 +1,12 @@
-package com.jsy.learn.algorithm.class07;
+package com.jsy.learn.algorithm.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Code04_SerializeAndReconstructTree {
+/**
+ * 不可忽略掉null
+ */
+public class C25_二叉树_序列化_SerializeAndReconstructTree {
 
 	public static class Node {
 		public int value;
@@ -15,6 +18,7 @@ public class Code04_SerializeAndReconstructTree {
 		}
 	}
 
+	// 序列化放入队列
 	public static Queue<String> preSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
 		pres(head, ans);
@@ -31,6 +35,7 @@ public class Code04_SerializeAndReconstructTree {
 		}
 	}
 
+	// 反序列化,从队列恢复二叉树
 	public static Node buildByPreQueue(Queue<String> prelist) {
 		if (prelist == null || prelist.size() == 0) {
 			return null;
@@ -49,6 +54,7 @@ public class Code04_SerializeAndReconstructTree {
 		return head;
 	}
 
+	//按层序列化
 	public static Queue<String> levelSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
 		if (head == null) {
@@ -75,7 +81,7 @@ public class Code04_SerializeAndReconstructTree {
 		}
 		return ans;
 	}
-
+    //按层反序列化
 	public static Node buildByLevelQueue(Queue<String> levelList) {
 		if (levelList == null || levelList.size() == 0) {
 			return null;

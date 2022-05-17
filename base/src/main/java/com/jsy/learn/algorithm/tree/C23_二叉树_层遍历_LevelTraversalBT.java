@@ -1,9 +1,12 @@
-package com.jsy.learn.algorithm.class07;
+package com.jsy.learn.algorithm.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Code03_LevelTraversalBT {
+/**
+ * 按层遍历,队列实现
+ */
+public class C23_二叉树_层遍历_LevelTraversalBT {
 
 	public static class Node {
 		public int value;

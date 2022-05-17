@@ -1,6 +1,6 @@
-package com.jsy.learn.algorithm.class07;
+package com.jsy.learn.algorithm.tree;
 
-public class Code05_PrintBinaryTree {
+public class C26_二叉树_结构打印_PrintBinaryTree {
 
 	public static class Node {
 		public int value;

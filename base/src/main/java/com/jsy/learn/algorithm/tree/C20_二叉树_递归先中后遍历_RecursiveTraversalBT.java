@@ -17,7 +17,7 @@ package com.jsy.learn.algorithm.tree;
  * 				pre(head.left);
  * 				pre(head.right);
  */
-public class C2_二叉树_递归先中后遍历_RecursiveTraversalBT {
+public class C20_二叉树_递归先中后遍历_RecursiveTraversalBT {
 
 	public static class Node {
 		public int value;
