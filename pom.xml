@@ -12,6 +12,7 @@
         <module>base</module>
         <module>zookeeper</module>
         <module>redis</module>
+        <module>test-servlet</module>
     </modules>
 
     <properties>
