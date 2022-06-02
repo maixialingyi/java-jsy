@@ -76,4 +76,8 @@ public class TestRedis {
             }
         }
     }
+
+    public void testSet(){
+        System.out.println(redisTemplate.opsForSet().add("jiangshaoyue", "jiangshaoyue"));
+    }
 }
