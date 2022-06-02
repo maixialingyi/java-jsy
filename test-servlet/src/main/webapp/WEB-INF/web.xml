@@ -6,14 +6,29 @@
     <display-name>Hello World Servlet</display-name>
 
     <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
+        <servlet-name>hello</servlet-name>
         <servlet-class>com.jsy.learn.HelloWorldServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>lifeCycle</servlet-name>
+        <servlet-class>com.jsy.learn.LifeCycleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>api</servlet-name>
+        <servlet-class>com.jsy.learn.ApiServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
+        <servlet-name>hello</servlet-name>
         <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>lifeCycle</servlet-name>
+        <url-pattern>/lifeCycle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>api</servlet-name>
+        <url-pattern>/api</url-pattern>
     </servlet-mapping>
 
 </web-app>
