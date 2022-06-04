@@ -10,6 +10,8 @@
         <module name="test-servlet" />
         <module name="zookeeper" />
         <module name="redis" />
+        <module name="test-spring" />
+        <module name="test-springboot" />
         <module name="base" />
       </profile>
     </annotationProcessing>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="person" class="com.jsy.learn.testBean.testXml.Person">
+		<constructor-arg name="name" value="maxiaosan"></constructor-arg>
+		<constructor-arg name="food" ref="food"></constructor-arg>
+	</bean>
+
+	<bean id="food" class="com.jsy.learn.testBean.testXml.Food" scope="prototype" init-method="init"></bean>
+
+	<bean id="my1BeanFactoryPostProcessor" class="com.jsy.learn.testBean.My1BeanFactoryPostProcessor"></bean>
+
+	<bean id="myFacotryBean" class="com.jsy.learn.testBean.MyFacotryBean"></bean>
+
+	<bean id="my2Aware" class="com.jsy.learn.testBean.My2Aware"></bean>
+</beans>

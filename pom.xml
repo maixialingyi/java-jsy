@@ -13,6 +13,8 @@
         <module>zookeeper</module>
         <module>redis</module>
         <module>test-servlet</module>
+        <module>test-spring</module>
+        <module>test-springboot</module>
     </modules>
 
     <properties>
