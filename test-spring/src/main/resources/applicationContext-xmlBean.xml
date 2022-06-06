@@ -9,7 +9,7 @@
 		<constructor-arg name="food" ref="food"></constructor-arg>
 	</bean>
 
-	<bean id="food" class="com.jsy.learn.testBean.testXml.Food" scope="prototype" init-method="init"></bean>
+	<bean id="food" class="com.jsy.learn.testBean.testXml.Food" scope="prototype" init-method="init" lazy-init="false"></bean>
 
 	<bean id="my1BeanFactoryPostProcessor" class="com.jsy.learn.testBean.My1BeanFactoryPostProcessor"></bean>
 
