@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_ADDITIONAL_VM_OPTIONS" value="-Djps.track.ap.dependencies=false" />
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="test-servlet" />
+        <module name="test-project" />
         <module name="zookeeper" />
+        <module name="test-servlet" />
         <module name="redis" />
         <module name="test-spring" />
-        <module name="test-springboot" />
         <module name="base" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="test-exception" target="1.8" />
+      <module name="test-springboot" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="test-project" options="-parameters" />
+    </option>
   </component>
 </project>

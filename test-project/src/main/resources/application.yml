@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: ex #服务名称
+  profiles:
+    active: local
+
+#是否启用swagger
+swagger:
+  enable: true
+
