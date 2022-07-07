@@ -1,4 +1,4 @@
-package com.jsy.learn.exception.http.exception;
+package com.jsy.learn.meituan.http.exception;
 
 /**
  * 本系统功能划分,作为错误码Code的前缀

@@ -1,4 +1,4 @@
-package com.jsy.learn.exception.http.aspect;/*
+package com.jsy.learn.meituan.http.aspect;/*
 package com.mid.catexception.adapter.http.aspect;
 
 import com.mid.catexception.adapter.http.exception.LecheckIllegalArgumentException;

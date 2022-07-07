@@ -1,6 +1,6 @@
-package com.jsy.learn.exception.util;
+package com.jsy.learn.meituan.util;
 
-import com.mid.catexception.adapter.http.exception.BizCode;
+import com.jsy.learn.meituan.http.exception.BizCode;
 import lombok.Data;
 import lombok.ToString;
 

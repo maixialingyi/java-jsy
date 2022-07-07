@@ -1,4 +1,4 @@
-package com.jsy.learn.exception.http.exception;
+package com.jsy.learn.meituan.http.exception;
 
 /**
  * 业务异常  既自定义抛出的异常  如空指针异常等

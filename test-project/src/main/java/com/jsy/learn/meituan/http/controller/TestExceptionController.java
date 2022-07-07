@@ -1,9 +1,8 @@
-package com.jsy.learn.exception.http.controller;
+package com.jsy.learn.meituan.http.controller;
 
-import com.mid.catexception.adapter.http.exception.BizCode;
-import com.mid.catexception.adapter.http.exception.PayBizException;
-import com.mid.catexception.adapter.util.Result;
-import com.mid.catexception.service.ITestExceptionService;
+import com.jsy.learn.meituan.http.exception.BizCode;
+import com.jsy.learn.meituan.http.exception.PayBizException;
+import com.jsy.learn.meituan.util.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "全局异常测试")
 @RestController("/testException")
 public class TestExceptionController {
-
-    @Autowired
-    private ITestExceptionService iTestExceptionService;
 
     @ApiOperation(value = "测试兜底异常")
     @GetMapping(value = "/test1")

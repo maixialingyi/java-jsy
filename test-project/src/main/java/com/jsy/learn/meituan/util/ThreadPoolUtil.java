@@ -1,4 +1,4 @@
-package com.jsy.learn.exception.util;
+package com.jsy.learn.meituan.util;
 
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;

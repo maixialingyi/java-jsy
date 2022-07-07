@@ -1,10 +1,9 @@
-package com.jsy.learn.exception.http.aspect;
+package com.jsy.learn.meituan.http.aspect;
 
-
-import com.mid.catexception.adapter.http.exception.BaseBizException;
-import com.mid.catexception.adapter.http.exception.BizCode;
-import com.mid.catexception.adapter.util.ExceptionUtil;
-import com.mid.catexception.adapter.util.Result;
+import com.jsy.learn.meituan.http.exception.BaseBizException;
+import com.jsy.learn.meituan.http.exception.BizCode;
+import com.jsy.learn.meituan.util.ExceptionUtil;
+import com.jsy.learn.meituan.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
