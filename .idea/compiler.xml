@@ -8,9 +8,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="test-servlet" />
         <module name="test-project" />
+        <module name="trace-invade-producer" />
         <module name="zookeeper" />
+        <module name="test-servlet" />
+        <module name="trace-invade-consumer" />
+        <module name="test-eureka" />
         <module name="redis" />
         <module name="test-spring" />
         <module name="base" />
@@ -19,11 +22,17 @@
     <bytecodeTargetLevel>
       <module name="test-exception" target="1.8" />
       <module name="test-springboot" target="1.8" />
+      <module name="trace-feign-eureka" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="test-eureka" options="-parameters" />
       <module name="test-project" options="-parameters" />
+      <module name="trace-feign-eureka" options="-parameters" />
+      <module name="trace-invade" options="-parameters" />
+      <module name="trace-invade-consumer" options="-parameters" />
+      <module name="trace-invade-producer" options="-parameters" />
     </option>
   </component>
 </project>

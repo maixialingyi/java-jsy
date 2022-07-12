@@ -9,6 +9,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/test-project/pom.xml" />
+        <option value="$PROJECT_DIR$/trace-invade/pom.xml" />
+        <option value="$PROJECT_DIR$/test-eureka/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
