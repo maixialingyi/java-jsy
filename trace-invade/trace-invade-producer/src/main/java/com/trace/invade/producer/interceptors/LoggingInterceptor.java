@@ -18,7 +18,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
     public final static String MDC_TRACE_ID = "traceId";
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
         String traceId = request.getHeader(MDC_TRACE_ID);
         if (StringUtils.isBlank(traceId)) {

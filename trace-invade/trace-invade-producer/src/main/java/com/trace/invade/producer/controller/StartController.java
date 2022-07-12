@@ -1,6 +1,7 @@
 package com.trace.invade.producer.controller;
 
 import com.trace.invade.producer.rpc.ConsumerRpcService;
+import com.trace.invade.producer.thread.CustomThreadPoolTaskExecutor;
 import com.trace.invade.producer.thread.MdcThreadPoolExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,15 +22,16 @@ public class StartController {
 
     @Autowired
     private ConsumerRpcService consumerRpcService;
-//    @Autowired
-//    private CustomThreadPoolTaskExecutor customThreadPoolTaskExecutor;
+    @Autowired
+    private CustomThreadPoolTaskExecutor customThreadPoolTaskExecutor;
 
     @GetMapping("/start")
     public String start() {
         LOGGER.info("开始");
 
-//        customThreadPoolTaskExecutor.execute(() -> test1());
-
+        // 方式一: spring封装线程池
+        //customThreadPoolTaskExecutor.execute(() -> test1());
+        // 方式二: 自定线程池
         mdcThreadPoolExecutor.execute(() -> test1());
 
         return consumerRpcService.hi();
