@@ -10,13 +10,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="test-project" />
         <module name="trace-invade-producer" />
+        <module name="trace-agent-producer" />
         <module name="zookeeper" />
-        <module name="test-servlet" />
         <module name="trace-invade-consumer" />
+        <module name="test-servlet" />
+        <module name="trace-agent-consumer" />
         <module name="test-eureka" />
-        <module name="redis" />
         <module name="test-spring" />
+        <module name="redis" />
         <module name="base" />
+        <module name="trace-agent-myagent" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -29,6 +32,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="test-eureka" options="-parameters" />
       <module name="test-project" options="-parameters" />
+      <module name="trace-agent-consumer" options="-parameters" />
+      <module name="trace-agent-myagent" options="-parameters" />
+      <module name="trace-agent-producer" options="-parameters" />
       <module name="trace-feign-eureka" options="-parameters" />
       <module name="trace-invade" options="-parameters" />
       <module name="trace-invade-consumer" options="-parameters" />
