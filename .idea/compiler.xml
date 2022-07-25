@@ -13,19 +13,20 @@
         <module name="trace-agent-producer" />
         <module name="zookeeper" />
         <module name="trace-invade-consumer" />
+        <module name="test-eureka" />
+        <module name="redis" />
+        <module name="trace-agent-myagent" />
         <module name="test-servlet" />
         <module name="trace-agent-consumer" />
-        <module name="test-eureka" />
         <module name="test-spring" />
-        <module name="redis" />
         <module name="base" />
-        <module name="trace-agent-myagent" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="test-exception" target="1.8" />
       <module name="test-springboot" target="1.8" />
       <module name="trace-feign-eureka" target="1.8" />
+      <module name="untitled" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
