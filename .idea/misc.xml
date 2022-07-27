@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/redis/pom.xml" />
         <option value="$PROJECT_DIR$/base/pom.xml" />
         <option value="$PROJECT_DIR$/zookeeper/pom.xml" />
+        <option value="$PROJECT_DIR$/red-packet/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

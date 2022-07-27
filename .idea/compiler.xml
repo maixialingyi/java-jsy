@@ -9,6 +9,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="test-project" />
+        <module name="red-packet" />
         <module name="trace-invade-producer" />
         <module name="trace-agent-producer" />
         <module name="zookeeper" />
@@ -31,6 +32,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="red-packet" options="-parameters" />
       <module name="test-eureka" options="-parameters" />
       <module name="test-project" options="-parameters" />
       <module name="trace-agent-consumer" options="-parameters" />

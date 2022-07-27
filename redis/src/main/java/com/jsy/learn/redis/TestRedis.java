@@ -38,7 +38,6 @@ public class TestRedis {
         conn.set("hello02".getBytes(),"mashibing".getBytes());
         System.out.println(new String(conn.get("hello02".getBytes())));
 
-
         // 高级api
         stringRedisTemplate.opsForValue().set("hello01","china");
         System.out.println(stringRedisTemplate.opsForValue().get("hello01"));
