@@ -15,10 +15,6 @@ import org.junit.Test;
 
 import java.net.InetSocketAddress;
 
-/**
- * @author: 马士兵教育
- * @create: 2020-06-30 20:02
- */
 public class MyNetty {
 
     /**

@@ -18,10 +18,19 @@
         <option value="$PROJECT_DIR$/base/pom.xml" />
         <option value="$PROJECT_DIR$/zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/red-packet/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/sznp-server/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/controller/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/sznp-api/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/sznp-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/sznp-facade/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/sznp-infrastructure/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/sznp-server/pom.xml" />
+        <option value="$PROJECT_DIR$/sznp/sznp-service/pom.xml" />
         <option value="$PROJECT_DIR$/test-springboot/pom.xml" />
         <option value="$PROJECT_DIR$/untitled/pom.xml" />
       </set>

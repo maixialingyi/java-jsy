@@ -24,6 +24,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="controller" target="1.8" />
+      <module name="sznp-api" target="1.8" />
+      <module name="sznp-domain" target="1.8" />
+      <module name="sznp-facade" target="1.8" />
+      <module name="sznp-infrastructure" target="1.8" />
+      <module name="sznp-server" target="1.8" />
+      <module name="sznp-service" target="1.8" />
       <module name="test-exception" target="1.8" />
       <module name="test-springboot" target="1.8" />
       <module name="trace-feign-eureka" target="1.8" />
@@ -32,7 +39,15 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="controller" options="-parameters" />
       <module name="red-packet" options="-parameters" />
+      <module name="sznp" options="-parameters" />
+      <module name="sznp-api" options="-parameters" />
+      <module name="sznp-domain" options="-parameters" />
+      <module name="sznp-facade" options="-parameters" />
+      <module name="sznp-infrastructure" options="-parameters" />
+      <module name="sznp-server" options="-parameters" />
+      <module name="sznp-service" options="-parameters" />
       <module name="test-eureka" options="-parameters" />
       <module name="test-project" options="-parameters" />
       <module name="trace-agent-consumer" options="-parameters" />
