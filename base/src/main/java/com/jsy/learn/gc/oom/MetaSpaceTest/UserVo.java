@@ -1,4 +1,4 @@
-package com.jsy.learn.gc.MetaSpaceTest;
+package com.jsy.learn.gc.oom.MetaSpaceTest;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
