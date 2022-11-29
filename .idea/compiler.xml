@@ -9,6 +9,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="test-project" />
+        <module name="testspringboot" />
         <module name="red-packet" />
         <module name="trace-invade-producer" />
         <module name="trace-agent-producer" />
@@ -50,6 +51,7 @@
       <module name="sznp-service" options="-parameters" />
       <module name="test-eureka" options="-parameters" />
       <module name="test-project" options="-parameters" />
+      <module name="testspringboot" options="-parameters" />
       <module name="trace-agent-consumer" options="-parameters" />
       <module name="trace-agent-myagent" options="-parameters" />
       <module name="trace-agent-producer" options="-parameters" />

@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/red-packet/pom.xml" />
         <option value="$PROJECT_DIR$/sznp/pom.xml" />
+        <option value="$PROJECT_DIR$/../testspringboot/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
