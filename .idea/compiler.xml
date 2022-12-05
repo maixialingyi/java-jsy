@@ -9,7 +9,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="test-project" />
-        <module name="testspringboot" />
         <module name="red-packet" />
         <module name="trace-invade-producer" />
         <module name="trace-agent-producer" />
@@ -34,6 +33,7 @@
       <module name="sznp-service" target="1.8" />
       <module name="test-exception" target="1.8" />
       <module name="test-springboot" target="1.8" />
+      <module name="testspringboot" target="1.8" />
       <module name="trace-feign-eureka" target="1.8" />
       <module name="untitled" target="1.8" />
     </bytecodeTargetLevel>
